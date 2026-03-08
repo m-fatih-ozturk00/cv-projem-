@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Muhammed Fatih ÖZTÜRK</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #334155;
+        }
+
+        .cv-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            width: 100%;
+            max-width: 210mm;
+        }
+
+        .toolbar {
+            background: #ffffff;
+            color: #1e293b;
+            padding: 16px 24px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11.5px;
+            width: 100%;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e4e4e7;
+            flex-wrap: wrap;
+        }
+
+        .toolbar span {
+            opacity: 0.9;
+        }
+
+        .edit-hint {
+            font-size: 10.5px;
+            color: #475569;
+            font-weight: 400;
+        }
+
+        .toolbar button {
+            background: #1e293b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 10.5px;
+            transition: all 0.2s;
+            margin-left: auto;
+        }
+
+        .toolbar button:hover {
+            background: #27272a;
+            transform: translateY(-1px);
+        }
+
+        /* CV Paper */
+        .cv {
+            background: #ffffff;
+            width: 100%;
+            padding: 15px 30px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-radius: 8px;
+        }
+
+        /* Header */
+        .cv-header {
+            text-align: center;
+            padding-bottom: 6px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #e4e4e7;
+        }
+
+        .cv-header h1 {
+            font-size: 18px;
+            color: #1e293b;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1px;
+        }
+
+        .cv-header-info {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            font-size: 10.5px;
+            color: #475569;
+            flex-wrap: wrap;
+        }
+
+        .cv-header-info div {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .cv-header-info .label {
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        /* Main layout */
+        .cv-body {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .cv-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        /* Left label column */
+        .cv-label {
+            width: 140px;
+            min-width: 140px;
+            display: flex;
+            align-items: center;
+            /* Açıklamalarla dikeyde tam ortalar */
+            justify-content: flex-end;
+            text-align: right;
+            /* Başlıkla aynı hizaya gelmesi için ince ayar */
+            padding-right: 12px;
+            /* Çizgiyle aradaki mesafe */
+        }
+
+        .cv-label span {
+            font-size: 9.5px;
+            font-weight: 700;
+            color: #475569;
+            line-height: 1.5;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        /* Right content column */
+        .cv-content {
+            flex: 1;
+            font-size: 10.5px;
+            line-height: 1.3;
+            padding-left: 24px;
+            border-left: 1.5px solid #e4e4e7;
+        }
+
+        /* Editable elements */
+        [contenteditable="true"] {
+            outline: none;
+            border-radius: 4px;
+            transition: all 0.15s ease;
+            position: relative;
+        }
+
+        [contenteditable="true"]:hover {
+            background: #f8fafc;
+            box-shadow: 0 0 0 4px #f8fafc;
+            cursor: text;
+        }
+
+        [contenteditable="true"]:focus {
+            background: #f1f5f9;
+            box-shadow: 0 0 0 4px #f1f5f9;
+            color: #0284c7;
+        }
+
+        /* Education styles */
+        .edu-title {
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 11.5px;
+            margin-bottom: 1px;
+        }
+
+        .edu-sub {
+            font-weight: 500;
+            font-size: 10px;
+            color: #334155;
+        }
+
+        .edu-detail {
+            font-size: 10.5px;
+            color: #475569;
+            margin-top: 2px;
+        }
+
+        strong {
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        /* Job entries */
+        .job-entry {
+            margin-bottom: 5px;
+            padding-bottom: 5px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .job-entry:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .job-title {
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 11.5px;
+            margin-bottom: 1px;
+        }
+
+        .job-position {
+            font-size: 10px;
+            color: #334155;
+            margin-bottom: 0px;
+            font-weight: 500;
+        }
+
+        .job-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .job-bullets li {
+            padding-left: 18px;
+            position: relative;
+            font-size: 10.5px;
+            color: #475569;
+            margin-bottom: 0px;
+        }
+
+        .job-bullets li:last-child {
+            margin-bottom: 0;
+        }
+
+        .job-bullets li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 7px;
+            width: 4px;
+            height: 4px;
+            background-color: #64748b;
+            border-radius: 50%;
+        }
+
+        /* Skills grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4px 10px;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 10.5px;
+            color: #475569;
+            background: #f1f5f9;
+            padding: 3px 6px;
+            border-radius: 6px;
+            border: 1px solid #f8fafc;
+        }
+
+        .skill-item::before {
+            content: "";
+            width: 4px;
+            height: 4px;
+            background-color: #1e293b;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* Activities */
+        .activity-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .activity-list li {
+            padding-left: 18px;
+            position: relative;
+            font-size: 10.5px;
+            color: #475569;
+            margin-bottom: 0px;
+        }
+
+        .activity-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .activity-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 7px;
+            width: 4px;
+            height: 4px;
+            background-color: #64748b;
+            border-radius: 50%;
+        }
+
+        /* Personal info */
+        .personal-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .personal-info div {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .personal-info .info-label {
+            font-weight: 500;
+            color: #1e293b;
+            min-width: 60px;
+        }
+
+        /* Referans */
+        .referans-item {
+            color: #475569;
+            font-style: italic;
+            font-size: 10.5px;
+        }
+
+        /* Girişimci block styling */
+        .girisimci-block {
+            background: #f1f5f9;
+            border: 1px solid #e4e4e7;
+            padding: 6px 10px;
+            border-radius: 8px;
+            margin-bottom: 6px;
+        }
+
+        .girisimci-title {
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 11.5px;
+            margin-bottom: 1px;
+        }
+
+        /* Print & A4 Scaling */
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+
+            .toolbar {
+                display: none !important;
+            }
+
+            .cv-wrapper {
+                padding: 0;
+                margin: 0;
+                max-width: none;
+                gap: 0;
+            }
+
+            .cv {
+                width: 210mm;
+                height: 297mm;
+                box-shadow: none;
+                margin: 0;
+                border: none;
+                border-radius: 0;
+                padding: 5mm;
+            }
+
+            [contenteditable="true"]:hover,
+            [contenteditable="true"]:focus {
+                background: transparent !important;
+                box-shadow: none !important;
+                color: inherit !important;
+            }
+
+            .skill-item {
+                border: 1px solid #e4e4e7 !important;
+                background: transparent !important;
+            }
+
+            .girisimci-block {
+                background: transparent !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="cv-wrapper">
+
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <span>✏️ <strong>Düzenlenebilir CV</strong></span>
+            <span class="edit-hint">Herhangi bir metne tıklayarak düzenleyebilirsiniz.</span>
+            <button class="btn-print" onclick="window.print()">🖨️ Yazdır / PDF</button>
+        </div>
+
+        <!-- CV Paper -->
+        <div class="cv">
+
+            <!-- Header -->
+            <div class="cv-header">
+                <h1 contenteditable="true">Muhammed Fatih ÖZTÜRK</h1>
+                <div class="cv-header-info">
+                    <div>
+                        <span class="label">Adres:</span>
+                        <span contenteditable="true">Çekmeköy/İstanbul</span>
+                    </div>
+                    <div>
+                        <span class="label">Cep Telefonu:</span>
+                        <span contenteditable="true">+90 533 363 13 96</span>
+                    </div>
+                    <div>
+                        <span class="label">E-mail:</span>
+                        <span contenteditable="true">fatih.ozturk.24190@ozu.edu.tr</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CV Body -->
+            <div class="cv-body">
+
+                <!-- EĞİTİM -->
+                <div class="cv-row">
+                    <div class="cv-label"><span>EĞİTİM</span></div>
+                    <div class="cv-content">
+                        <div class="edu-title">
+                            <span contenteditable="true">ÖZYEĞİN ÜNİVERSİTESİ</span>
+                            <span style="font-weight:normal;color:#222;"> – </span>
+                            <span contenteditable="true" style="font-weight:normal;color:#222;">İstanbul, TÜRKİYE (2020
+                                – Devam ediyor)</span>
+                        </div>
+                        <div class="edu-sub" contenteditable="true">Hukuk Fakültesi</div>
+                        <div class="edu-sub" contenteditable="true">Hukuk</div>
+                        <div class="edu-detail"><strong>Sınıf:</strong> <span contenteditable="true">3</span></div>
+                        <div class="edu-detail"><strong>Başarılar:</strong> <span contenteditable="true">%50 Başarı
+                                Bursu</span></div>
+                        <div style="border-bottom: 1px dashed #cbd5e1; margin: 6px 0;"></div>
+                        <div class="edu-title">
+                            <span contenteditable="true">ÖZEL BEYZA ANADOLU LİSESİ</span>
+                            <span style="font-weight:normal;color:#222;"> – </span>
+                            <span contenteditable="true" style="font-weight:normal;color:#222;">Kahramanmaraş, TÜRKİYE
+                                (2015-2019)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- İŞ DENEYİMİ -->
+                <div class="cv-row">
+                    <div class="cv-label" style="padding-top:14px;"><span>İŞ DENEYİMİ</span></div>
+                    <div class="cv-content">
+
+                        <div class="job-entry">
+                            <div class="job-title">
+                                <span contenteditable="true">ÇİĞKÖFTECİ ÖMER AYBAK</span>
+                                <span style="font-weight:normal;color:#222;"> – </span>
+                                <span contenteditable="true" style="font-weight:normal;color:#222;">İstanbul, TÜRKİYE
+                                    (09/2025 – Devam ediyor)</span>
+                            </div>
+                            <div class="job-position"><strong>Pozisyon:</strong> <span contenteditable="true">Satış ve
+                                    Operasyon Sorumlusu</span></div>
+                            <ul class="job-bullets">
+                                <li contenteditable="true">Müşteri siparişlerinin hazırlanması ve satış süreçlerinin
+                                    yönetilmesi</li>
+                                <li contenteditable="true">Şube içi düzenin sağlanması ve stok takibi</li>
+                            </ul>
+                        </div>
+
+                        <div class="job-entry">
+                            <div class="job-title">
+                                <span contenteditable="true">SLEEPLESS CO</span>
+                                <span style="font-weight:normal;color:#222;"> – </span>
+                                <span contenteditable="true" style="font-weight:normal;color:#222;">İstanbul, TÜRKİYE
+                                    (10/2024 – 06/2025)</span>
+                            </div>
+                            <div class="job-position"><strong>Pozisyon:</strong> <span contenteditable="true">Orta Sınıf
+                                    Market Müdürü</span></div>
+                            <ul class="job-bullets">
+                                <li contenteditable="true">Şube yönetimi, kasa işlemleri ve ekip sorumlusu</li>
+                            </ul>
+                        </div>
+
+                        <div class="job-entry">
+                            <div class="job-title">
+                                <span contenteditable="true">MİRHAK HUKUK BÜROSU</span>
+                                <span style="font-weight:normal;color:#222;"> – </span>
+                                <span contenteditable="true" style="font-weight:normal;color:#222;">İstanbul, TÜRKİYE
+                                    (09/2024 – 10/2024)</span>
+                            </div>
+                            <div class="job-position"><strong>Pozisyon:</strong> <span contenteditable="true">Stajyer
+                                    Avukat</span></div>
+                            <ul class="job-bullets">
+                                <li contenteditable="true">Dava dosyalarının düzenlenmesi, tasnif edilmesi ve
+                                    arşivlenmesi</li>
+                                <li contenteditable="true">Hukuki evrak süreçlerinin takibi ve ofis operasyonlarına
+                                    destek</li>
+                            </ul>
+                        </div>
+
+                        <div class="job-entry">
+                            <div class="job-title">
+                                <span contenteditable="true">A101 Yeni Mağazacılık A.Ş.</span>
+                                <span style="font-weight:normal;color:#222;"> – </span>
+                                <span contenteditable="true" style="font-weight:normal;color:#222;">İstanbul, TÜRKİYE
+                                    (04/2024 – 09/2024)</span>
+                            </div>
+                            <div class="job-position"><strong>Pozisyon:</strong> <span
+                                    contenteditable="true">Kasiyer</span></div>
+                            <ul class="job-bullets">
+                                <li contenteditable="true">Kasa işlemlerinin hızlı ve doğru şekilde gerçekleştirilmesi
+                                </li>
+                                <li contenteditable="true">Reyon düzeni, fiyat etiketlerinin kontrolü ve stok yerleşimi
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="job-entry">
+                            <div class="job-title">
+                                <span contenteditable="true">SLEEPLESS CO</span>
+                                <span style="font-weight:normal;color:#222;"> – </span>
+                                <span contenteditable="true" style="font-weight:normal;color:#222;">İstanbul, TÜRKİYE
+                                    (10/2023 – 04/2024)</span>
+                            </div>
+                            <div class="job-position"><strong>Pozisyon:</strong> <span
+                                    contenteditable="true">Kasiyer</span></div>
+                            <ul class="job-bullets">
+                                <li contenteditable="true">Kasa işlemleri ve mağaza düzeni</li>
+                            </ul>
+                        </div>
+
+                        <div class="job-entry">
+                            <div class="job-title">
+                                <span contenteditable="true">BERSHKA</span>
+                                <span style="font-weight:normal;color:#222;"> – </span>
+                                <span contenteditable="true" style="font-weight:normal;color:#222;">İstanbul, TÜRKİYE
+                                    (08/2023 – 10/2023)</span>
+                            </div>
+                            <div class="job-position"><strong>Pozisyon:</strong> <span
+                                    contenteditable="true">Mağaza</span></div>
+                            <ul class="job-bullets">
+                                <li contenteditable="true">Depoda bulunan ürünlerin kategorize edilmesi ve düzenlenmesi
+                                </li>
+                                <li contenteditable="true">Mağaza içi ürün akışının sağlanması, stok sayımlarına destek
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="job-entry">
+                            <div class="job-title">
+                                <span contenteditable="true">YEMEKSEPETİ</span>
+                                <span style="font-weight:normal;color:#222;"> – </span>
+                                <span contenteditable="true" style="font-weight:normal;color:#222;">İstanbul, TÜRKİYE
+                                    (06/2023 – 08/2023)</span>
+                            </div>
+                            <div class="job-position"><strong>Pozisyon:</strong> <span contenteditable="true">Sales
+                                    Associate</span></div>
+                            <ul class="job-bullets">
+                                <li contenteditable="true">Motokurye, sipariş teslimi ve rota/zaman yönetimi</li>
+                            </ul>
+                        </div>
+
+                        <div class="job-entry">
+                            <div class="job-title">
+                                <span contenteditable="true">GERGER GROUP</span>
+                                <span style="font-weight:normal;color:#222;"> – </span>
+                                <span contenteditable="true" style="font-weight:normal;color:#222;">Kahramanmaraş,
+                                    TÜRKİYE (09/2019 – 08/2020)</span>
+                            </div>
+                            <ul class="job-bullets">
+                                <li contenteditable="true">Ofis içi evrakların düzenlenmesi ve arşivlenmesi (Pozisyon:
+                                    Ofis Destek Asistanı)</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- PROJELER ve ARAŞTIRMA ÇALIŞMALARI -->
+                <div class="cv-row">
+                    <div class="cv-label" style="padding-top:14px;"><span>PROJELER ve ARAŞTIRMA ÇALIŞMALARI</span></div>
+                    <div class="cv-content">
+
+                        <div class="girisimci-block">
+                            <div class="girisimci-title">
+                                <span contenteditable="true">GİRİŞİMCİ / KURUCU – (Freelance & Proje Bazlı) (2023 –
+                                    Günümüz)</span>
+                            </div>
+                            <ul class="job-bullets" style="margin-top:4px;">
+                                <li><strong contenteditable="true">Kampüs Kurye, Zikir App ve BegSuperApp:</strong>
+                                    <span contenteditable="true">üzerinde; analiz, tasarım ve geliştirme süreçleri devam
+                                        eden projelerin kurucusu.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="job-entry">
+                            <div class="job-title">
+                                <span contenteditable="true">ÖZEL BEYZA ANADOLU LİSESİ</span>
+                                <span style="font-weight:normal;color:#222;"> – </span>
+                                <span contenteditable="true" style="font-weight:normal;color:#222;">Kahramanmaraş,
+                                    TÜRKİYE (2017 -2019)</span>
+                            </div>
+                            <div class="job-position"><strong>Pozisyon:</strong> <span contenteditable="true">Öğrenci
+                                    Dergisi Ekip Üyesi</span></div>
+                            <ul class="job-bullets">
+                                <li contenteditable="true">Dergide yazı yayınlanması</li>
+                                <li contenteditable="true">Dergi editörlüğü, mizanpaj düzenlemesi</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- YETKİNLİKLER ve SERTİFİKALAR -->
+                <div class="cv-row">
+                    <div class="cv-label"><span>YETKİNLİKLER ve SERTİFİKALAR</span></div>
+                    <div class="cv-content">
+                        <div class="skills-grid">
+                            <div class="skill-item"><span contenteditable="true">Figma Tasarım Programı</span></div>
+                            <div class="skill-item"><span contenteditable="true">İngilizce Seviyesi A2</span></div>
+                            <div class="skill-item"><span contenteditable="true">VS Code</span></div>
+                            <div class="skill-item"><span contenteditable="true">MS Office programları</span></div>
+                            <div class="skill-item"><span contenteditable="true">UI/UX Tasarım</span></div>
+                            <div class="skill-item"><span contenteditable="true">Python</span></div>
+                            <div class="skill-item"><span contenteditable="true">Vibe Coding</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DERS DIŞI ETKİNLİKLER -->
+                <div class="cv-row">
+                    <div class="cv-label"><span>DERS DIŞI ETKİNLİKLER</span></div>
+                    <div class="cv-content">
+                        <ul class="activity-list">
+                            <li contenteditable="true">Üye, Doğa Sporları Kulübü (2021-2022)</li>
+                            <li contenteditable="true">Üye, Oda Tiyatrosu (2021-2022)</li>
+
+                            <li contenteditable="true">Saçaklızade Vakfı – Sosyal Sorumluluk Projeleri Gönüllüsü (2015 –
+                                2017)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- KİŞİSEL BİLGİLER -->
+                <div class="cv-row">
+                    <div class="cv-label"><span>KİŞİSEL BİLGİLER</span></div>
+                    <div class="cv-content personal-info">
+                        <div><span class="info-label">Doğum Tarihi:</span> <span
+                                contenteditable="true">02.06.2000</span></div>
+                        <div><span class="info-label">Ehliyet:</span> <span contenteditable="true">B Sınıfı</span></div>
+                    </div>
+                </div>
+
+                <!-- ASKERLİK DURUMU -->
+                <div class="cv-row">
+                    <div class="cv-label"><span>ASKERLİK DURUMU</span></div>
+                    <div class="cv-content personal-info">
+                        <div><span class="info-label">Durum:</span> <span contenteditable="true">Muaf</span></div>
+                        <div><span class="info-label">Sebep:</span> <span contenteditable="true">Ortopedik Engel</span>
+                        </div>
+                        <div><span class="info-label">Oran:</span> <span contenteditable="true">%40</span></div>
+                    </div>
+                </div>
+
+                <!-- REFERANS -->
+                <div class="cv-row">
+                    <div class="cv-label"><span>REFERANS</span></div>
+                    <div class="cv-content">
+                        <div class="referans-item" contenteditable="true">İstenildiğinde verilecektir.</div>
+                    </div>
+                </div>
+
+            </div><!-- cv-body end -->
+        </div><!-- cv end -->
+
+    </div><!-- cv-wrapper end -->
+
+</body>
+
+</html>
