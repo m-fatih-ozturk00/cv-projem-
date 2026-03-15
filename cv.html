@@ -81,31 +81,48 @@
         .cv {
             background: #ffffff;
             width: 100%;
-            padding: 15px 30px;
+            padding: 12px 20px;
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             border-radius: 8px;
         }
 
         /* Header */
         .cv-header {
-            text-align: center;
+            display: flex;
+            align-items: center;
+            gap: 14px;
             padding-bottom: 6px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             border-bottom: 1px solid #e4e4e7;
         }
 
+        .cv-photo {
+            width: 64px;
+            height: 64px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1px solid #cbd5e1;
+            flex-shrink: 0;
+        }
+
+        .cv-header-content {
+            flex: 1;
+        }
+
         .cv-header h1 {
-            font-size: 18px;
+            font-size: 19px;
             color: #1e293b;
             font-weight: 700;
             letter-spacing: -0.02em;
             margin-bottom: 1px;
+            text-align: left;
         }
 
         .cv-header-info {
             display: flex;
-            justify-content: center;
-            gap: 6px;
+            justify-content: flex-start;
+            column-gap: 8px;
+            row-gap: 4px;
             font-size: 10.5px;
             color: #475569;
             flex-wrap: wrap;
@@ -126,12 +143,19 @@
         .cv-body {
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 2px;
         }
 
         .cv-row {
             display: flex;
-            gap: 12px;
+            gap: 6px;
+            padding-bottom: 3px;
+            border-bottom: 1px solid #e4e4e7;
+        }
+
+        .cv-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
         }
 
         /* Left label column */
@@ -149,20 +173,20 @@
         }
 
         .cv-label span {
-            font-size: 9.5px;
+            font-size: 9px;
             font-weight: 700;
             color: #475569;
-            line-height: 1.5;
+            line-height: 1.4;
             text-transform: uppercase;
-            letter-spacing: 0.12em;
+            letter-spacing: 0.10em;
         }
 
         /* Right content column */
         .cv-content {
             flex: 1;
-            font-size: 10.5px;
-            line-height: 1.3;
-            padding-left: 24px;
+            font-size: 9.5px;
+            line-height: 1.2;
+            padding-left: 16px;
             border-left: 1.5px solid #e4e4e7;
         }
 
@@ -190,8 +214,8 @@
         .edu-title {
             font-weight: 600;
             color: #1e293b;
-            font-size: 11.5px;
-            margin-bottom: 1px;
+            font-size: 11px;
+            margin-bottom: 0px;
         }
 
         .edu-sub {
@@ -201,9 +225,9 @@
         }
 
         .edu-detail {
-            font-size: 10.5px;
+            font-size: 10px;
             color: #475569;
-            margin-top: 2px;
+            margin-top: 1px;
         }
 
         strong {
@@ -213,8 +237,8 @@
 
         /* Job entries */
         .job-entry {
-            margin-bottom: 5px;
-            padding-bottom: 5px;
+            margin-bottom: 2px;
+            padding-bottom: 2px;
             border-bottom: 1px dashed #cbd5e1;
         }
 
@@ -227,8 +251,8 @@
         .job-title {
             font-weight: 600;
             color: #1e293b;
-            font-size: 11.5px;
-            margin-bottom: 1px;
+            font-size: 11px;
+            margin-bottom: 0px;
         }
 
         .job-position {
@@ -245,9 +269,9 @@
         }
 
         .job-bullets li {
-            padding-left: 18px;
+            padding-left: 16px;
             position: relative;
-            font-size: 10.5px;
+            font-size: 10px;
             color: #475569;
             margin-bottom: 0px;
         }
@@ -274,14 +298,29 @@
             gap: 4px 10px;
         }
 
+        .skill-group-title {
+            grid-column: span 2;
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 10px;
+            margin-top: 4px;
+            margin-bottom: 0px;
+            border-bottom: 1px dashed #cbd5e1;
+            padding-bottom: 2px;
+        }
+
+        .skill-group-title:first-child {
+            margin-top: 0;
+        }
+
         .skill-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 10.5px;
+            gap: 6px;
+            font-size: 9px;
             color: #475569;
             background: #f1f5f9;
-            padding: 3px 6px;
+            padding: 2px 4px;
             border-radius: 6px;
             border: 1px solid #f8fafc;
         }
@@ -302,9 +341,9 @@
         }
 
         .activity-list li {
-            padding-left: 18px;
+            padding-left: 14px;
             position: relative;
-            font-size: 10.5px;
+            font-size: 9.5px;
             color: #475569;
             margin-bottom: 0px;
         }
@@ -328,13 +367,13 @@
         .personal-info {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 2px;
         }
 
         .personal-info div {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .personal-info .info-label {
@@ -347,23 +386,53 @@
         .referans-item {
             color: #475569;
             font-style: italic;
-            font-size: 10.5px;
+            font-size: 9.5px;
+        }
+
+        .ref-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .ref-list li {
+            padding-left: 12px;
+            position: relative;
+            font-size: 9.5px;
+            color: #475569;
+            margin-bottom: 2px;
+            line-height: 1.3;
+        }
+
+        .ref-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .ref-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 4.5px;
+            width: 4px;
+            height: 4px;
+            background-color: #0284c7; /* Mavi renk */
+            border-radius: 50%;
         }
 
         /* Girişimci block styling */
         .girisimci-block {
             background: #f1f5f9;
             border: 1px solid #e4e4e7;
-            padding: 6px 10px;
+            padding: 4px 8px;
             border-radius: 8px;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .girisimci-title {
             font-weight: 600;
             color: #1e293b;
-            font-size: 11.5px;
-            margin-bottom: 1px;
+            font-size: 11px;
+            margin-bottom: 0px;
         }
 
         /* Print & A4 Scaling */
@@ -377,6 +446,8 @@
                 background: white;
                 padding: 0;
                 margin: 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
 
             .toolbar {
@@ -391,13 +462,15 @@
             }
 
             .cv {
-                width: 210mm;
-                height: 297mm;
+                width: 100%;
+                max-width: 210mm;
+                height: auto;
                 box-shadow: none;
                 margin: 0;
                 border: none;
                 border-radius: 0;
-                padding: 5mm;
+                padding: 0;
+                zoom: 0.86;
             }
 
             [contenteditable="true"]:hover,
@@ -405,15 +478,6 @@
                 background: transparent !important;
                 box-shadow: none !important;
                 color: inherit !important;
-            }
-
-            .skill-item {
-                border: 1px solid #e4e4e7 !important;
-                background: transparent !important;
-            }
-
-            .girisimci-block {
-                background: transparent !important;
             }
         }
     </style>
@@ -435,8 +499,10 @@
 
             <!-- Header -->
             <div class="cv-header">
-                <h1 contenteditable="true">Muhammed Fatih ÖZTÜRK</h1>
-                <div class="cv-header-info">
+                <img src="profil.jpg" alt="Vesikalık Fotoğraf" class="cv-photo">
+                <div class="cv-header-content">
+                    <h1 contenteditable="true">Muhammed Fatih ÖZTÜRK</h1>
+                    <div class="cv-header-info">
                     <div>
                         <span class="label">Adres:</span>
                         <span contenteditable="true">Çekmeköy/İstanbul</span>
@@ -449,6 +515,29 @@
                         <span class="label">E-mail:</span>
                         <span contenteditable="true">fatih.ozturk.24190@ozu.edu.tr</span>
                     </div>
+                    <div style="gap: 8px;">
+                        <span class="label">Sosyal Medya:</span>
+                        <a href="https://www.instagram.com/m.fatih.ozturk00?igsh=YXFka2tzYXQ4Yndu&utm_source=qr" target="_blank" style="display: flex; align-items: center; text-decoration: none;" title="Instagram Profilim">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24">
+                                <defs>
+                                    <linearGradient id="ig-grad" x1="15%" y1="100%" x2="85%" y2="0%">
+                                        <stop offset="0%" stop-color="#f09433"/>
+                                        <stop offset="25%" stop-color="#e6683c"/>
+                                        <stop offset="50%" stop-color="#dc2743"/>
+                                        <stop offset="75%" stop-color="#cc2366"/>
+                                        <stop offset="100%" stop-color="#bc1888"/>
+                                    </linearGradient>
+                                </defs>
+                                <path fill="url(#ig-grad)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/muhammed-fatih-%C3%B6zt%C3%BCrk-823136212/" target="_blank" style="color: #0284c7; display: flex; align-items: center; text-decoration: none;" title="LinkedIn Profilim">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
                 </div>
             </div>
 
@@ -465,18 +554,19 @@
                             <span contenteditable="true" style="font-weight:normal;color:#222;">İstanbul, TÜRKİYE (2020
                                 – Devam ediyor)</span>
                         </div>
-                        <div class="edu-sub" contenteditable="true">Hukuk Fakültesi</div>
-                        <div class="edu-sub" contenteditable="true">Hukuk</div>
+                        <div class="edu-detail"><strong>Fakülte:</strong> <span contenteditable="true">Hukuk Fakültesi</span></div>
+                        <div class="edu-detail"><strong>Bölüm:</strong> <span contenteditable="true">Hukuk (Lisans)</span></div>
                         <div class="edu-detail"><strong>Sınıf:</strong> <span contenteditable="true">3</span></div>
                         <div class="edu-detail"><strong>Başarılar:</strong> <span contenteditable="true">%50 Başarı
                                 Bursu</span></div>
-                        <div style="border-bottom: 1px dashed #cbd5e1; margin: 6px 0;"></div>
+                        <div style="border-bottom: 1px dashed #cbd5e1; margin: 4px 0;"></div>
                         <div class="edu-title">
                             <span contenteditable="true">ÖZEL BEYZA ANADOLU LİSESİ</span>
                             <span style="font-weight:normal;color:#222;"> – </span>
                             <span contenteditable="true" style="font-weight:normal;color:#222;">Kahramanmaraş, TÜRKİYE
                                 (2015-2019)</span>
                         </div>
+                        <div class="edu-detail"><strong>Derece:</strong> <span contenteditable="true">Lise Eğitimi</span></div>
                     </div>
                 </div>
 
@@ -515,16 +605,20 @@
                             </ul>
                         </div>
 
-                        <div class="job-entry">
-                            <div class="job-title">
+                        <div class="job-entry" style="background: #f1f5f9; padding: 10px; border-radius: 8px; border: 1px solid #cbd5e1; margin-bottom: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-top: 5px;">
+                            <div class="job-title" style="font-size: 12.5px; color: #0284c7;">
                                 <span contenteditable="true">Mir&amp;Hak Hukuk Bürosu</span>
-                                <span style="font-weight:normal;color:#222;"> – </span>
-                                <span contenteditable="true" style="font-weight:normal;color:#222;">İstanbul, TÜRKİYE
+                                <span style="font-weight:normal;color:#334155;"> – </span>
+                                <span contenteditable="true" style="font-weight:normal;color:#334155;">İstanbul, TÜRKİYE
                                     (09/2024 – 10/2024)</span>
                             </div>
-                            <div class="job-position"><strong>Pozisyon:</strong> <span contenteditable="true">Stajyer
-                                    Avukat</span></div>
-                            <ul class="job-bullets">
+                            <div class="job-position" style="font-size: 10.5px; color: #1e293b; margin-top: 2px;">
+                                <strong>Pozisyon:</strong> <span contenteditable="true">Yaz Stajyeri</span>
+                            </div>
+                            <div style="font-size: 9.5px; color: #0369a1; font-weight: 600; margin-top: 4px; display: inline-block; background: #e0f2fe; padding: 2px 6px; border-radius: 4px;" contenteditable="true">
+                                Zorunlu Yasal Yaz Stajı
+                            </div>
+                            <ul class="job-bullets" style="margin-top: 4px;">
                                 <li contenteditable="true">Dava dosyalarının düzenlenmesi, tasnif edilmesi ve
                                     arşivlenmesi</li>
                                 <li contenteditable="true">Hukuki evrak süreçlerinin takibi ve ofis operasyonlarına
@@ -623,9 +717,15 @@
                                     Günümüz)</span>
                             </div>
                             <ul class="job-bullets" style="margin-top:4px;">
-                                <li><strong contenteditable="true">Kampüs Kurye, Zikir App ve BegSuperApp:</strong>
-                                    <span contenteditable="true">üzerinde; analiz, tasarım ve geliştirme süreçleri devam
-                                        eden projelerin kurucusu.</span>
+                                <li style="margin-bottom: 4px;">
+                                    <strong>
+                                        <a href="https://kampus-kurye-web.vercel.app/login" target="_blank" contenteditable="false" style="display: inline-block; background-color: #0284c7; color: #ffffff; padding: 2px 6px; border-radius: 4px; text-decoration: none; font-weight: 600; cursor: pointer; z-index: 50; position: relative;" title="Kampüs Kurye Giriş Tıklayın">Kampüs Kurye</a>
+                                    </strong>
+                                    <span contenteditable="true">Özyeğin Üniversitesi'nden yasal izinleri alınmış, ihale ve operasyon süreçleri yürütülen girişimdir. Geçici bir link üzerinden herkese açık olarak aktif test aşamasındadır. Uygulamayı incelemek için ilgili butona (isim üzerine) tıklayarak test edebilirsiniz.</span>
+                                </li>
+                                <li>
+                                    <strong contenteditable="true">Zikir App & BegSuperApp:</strong>
+                                    <span contenteditable="true">Analiz, tasarım ve genel geliştirme (mobil/web) süreçleri aktif olarak devam eden projelerdir.</span>
                                 </li>
                             </ul>
                         </div>
@@ -648,18 +748,40 @@
                     </div>
                 </div>
 
-                <!-- YETKİNLİKLER ve SERTİFİKALAR -->
+                <!-- YETKİNLİKLER, KURSLAR VE SERTİFİKALAR -->
                 <div class="cv-row">
-                    <div class="cv-label"><span>YETKİNLİKLER ve SERTİFİKALAR</span></div>
+                    <div class="cv-label"><span>YETKİNLİKLER, KURSLAR<br>VE SERTİFİKALAR</span></div>
                     <div class="cv-content">
                         <div class="skills-grid">
+                            <!-- Hukuk -->
+                            <div class="skill-group-title" contenteditable="true">Hukuk Eğitimleri ve Sertifikaları</div>
+                            <div class="skill-item"><span contenteditable="true">Tıp Hukuku Sempozyumu / Özyeğin Üniversitesi</span></div>
+                            <div class="skill-item"><span contenteditable="true">Kurgusal Dava - İnsan Hakları Hukuku / Özyeğin Üniversitesi</span></div>
+                            <div class="skill-item"><span contenteditable="true">Spor Hukuku Sempozyumu / Özyeğin Üniversitesi</span></div>
+                            <div class="skill-item"><span contenteditable="true">İdare Hukuku Kurgusal Dava Sunumu / Özyeğin Üniversitesi</span></div>
+
+                            <!-- Kişisel Gelişim ve Dil -->
+                            <div class="skill-group-title" contenteditable="true">Kişisel Gelişim ve Yabancı Dil</div>
+                            <div class="skill-item"><span contenteditable="true">İngilizce Seviyesi A2 / B1 (Başlangıç)</span></div>
+                            <div class="skill-item"><span contenteditable="true">Duolingo, Cambly (Aktif Pratik)</span></div>
+                            <div class="skill-item"><span contenteditable="true">Etkili İletişim Teknikleri / Boğaziçi Enstitüsü</span></div>
+                            <div class="skill-item"><span contenteditable="true">Stres Yönetimi / Boğaziçi Enstitüsü</span></div>
+
+                            <!-- Yazılım ve Tasarım -->
+                            <div class="skill-group-title" contenteditable="true">Yazılım ve Tasarım</div>
                             <div class="skill-item"><span contenteditable="true">Figma Tasarım Programı</span></div>
-                            <div class="skill-item"><span contenteditable="true">İngilizce Seviyesi A2</span></div>
-                            <div class="skill-item"><span contenteditable="true">VS Code</span></div>
-                            <div class="skill-item"><span contenteditable="true">MS Office programları</span></div>
                             <div class="skill-item"><span contenteditable="true">UI/UX Tasarım</span></div>
                             <div class="skill-item"><span contenteditable="true">Python</span></div>
+                            <div class="skill-item"><span contenteditable="true">VS Code</span></div>
                             <div class="skill-item"><span contenteditable="true">Vibe Coding</span></div>
+
+                            <!-- Ofis ve Doküman Programları -->
+                            <div class="skill-group-title" contenteditable="true">Ofis ve Doküman Programları</div>
+                            <div class="skill-item"><span contenteditable="true">MS Office Programları</span></div>
+                            <div class="skill-item"><span contenteditable="true">UYAP Bilişim Sistemi ve UDF Editörü (Dosya ve İş Takibinde Yetkin)</span></div>
+                            <div class="skill-item"><span contenteditable="true">GİB Panel Kullanımı (Dosya ve İş Takibinde Yetkin)</span></div>
+                            <div class="skill-item"><span contenteditable="true">Dijital Toplantı Platformları (Google Meet, Zoom vb.)</span></div>
+                            <div class="skill-item"><span contenteditable="true">Google Calendar (Planlama, Dosya ve İş Takibinde Yetkin)</span></div>
                         </div>
                     </div>
                 </div>
@@ -698,6 +820,14 @@
                         <div><span class="info-label">Oran:</span> <span contenteditable="true">%40</span></div>
                     </div>
                 </div>
+
+                <!-- MEDENİ DURUM -->
+                <div class="cv-row">
+                    <div class="cv-label"><span>MEDENİ DURUM</span></div>
+                    <div class="cv-content personal-info">
+                        <div><span class="info-label">Durum:</span> <span contenteditable="true">Bekar</span></div>
+                    </div>
+                </div>
                 <!-- CV DETAYI -->
                 <div class="cv-row">
                     <div class="cv-label"><span>CV DETAYI</span></div>
@@ -715,11 +845,15 @@
                     </div>
                 </div>
 
-                <!-- REFERANS -->
+                <!-- REFERANS VE BELGELER -->
                 <div class="cv-row">
-                    <div class="cv-label"><span>REFERANS</span></div>
+                    <div class="cv-label"><span>REFERANS VE BELGELER</span></div>
                     <div class="cv-content">
-                        <div class="referans-item" contenteditable="true">İstenildiğinde verilecektir.</div>
+                        <ul class="ref-list">
+                            <li contenteditable="true">Referanslar istenildiğinde verilecektir.</li>
+                            <li contenteditable="true">Kurgusal dava ve seminerlere ilişkin sertifika ve katılım belgeleri istenildiğinde verilecektir.</li>
+                            <li contenteditable="true" style="color: #0284c7; font-weight: 600;">Yazımına katkıda bulunulan hukuki dilekçe örnekleri talep halinde sunulacaktır.</li>
+                        </ul>
                     </div>
                 </div>
 
